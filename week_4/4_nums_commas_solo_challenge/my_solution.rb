@@ -14,7 +14,7 @@
 # separate_comma(0) = "0"
 # separate_comma(100) = "100"
 # separate_comma(1000) = "1,000"
-# separate_comma(1000000) = "1,000,000"
+# separate_comma(100000000) = "100,000,000"
 
 # What are the steps needed to solve the problem?
 
