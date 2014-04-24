@@ -8,7 +8,12 @@
 # 1. Pseudocode
 
 # What is the input?
+# an integer
+
 # What is the output? (i.e. What should the code return?)
+# separate_comma(0) = "0"
+# separate_comma(0) = "0"
+# separate_comma(0) = "0"
 # What are the steps needed to solve the problem?
 
 
