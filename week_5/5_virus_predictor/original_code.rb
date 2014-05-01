@@ -1,14 +1,31 @@
 # U2.W5: Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself].
+#=====================================================
+# 1. What is the program doing?
+# The program inputs the state data from the 'state_data.rb' file and predicts
+# the time it would take for the virus to spread across different states in US.
+#=====================================================
+# 2. EXPLANATION OF require_relative
+# From my understanding, require_relative means that it seeks the file with the
+# name mentioned in the quote next to it.
 
-# EXPLANATION OF require_relative
-#
-#
+# For example: 
+# Filename: original_code.rb
+# context within the "original_code.rb" file:
+#     require_relative 'state_data'
+
+# In the example above, original_code.rb file is looking for a file named "state_data.rb"
+#=====================================================
+# 3. 'Analyze state_data' - What is going on with this hash? What does it have in it?
+# This hash saves the "population density", "population", "region", and "regional spread"
+# of each state.
+#=====================================================
 require_relative 'state_data'
 
 class VirusPredictor
-
+  # The initialize method initializes the instance variables required to present the data
+  # of each state
   def initialize(state_of_origin, population_density, population, region, regional_spread)
     @state = state_of_origin
     @population = population
@@ -16,14 +33,20 @@ class VirusPredictor
     @region = region
     @next_region = regional_spread
   end
-
-  def virus_effects  #HINT: What is the SCOPE of instance variables?
+  # This method predicts the deaths within the state using the state's population density
+  # and its population. Also, it estimates the speed of virus as it spreads through the
+  # given state based on the population density.
+  def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
-  private  #what is this?  what happens if it were cut and pasted above the virus_effects method
+  private
+  # This is a private method; meaning, this method can only be called within the
+  # class it refers to (VirusPredictor)
 
+  # this method predicts the number of deaths based on the population density
+  # of a given state
   def predicted_deaths(population_density, population, state)
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -40,7 +63,8 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
-
+  # this method estimates the speed of spread based on the population density of
+  # a given state
   def speed_of_spread(population_density, state) #in months
     speed = 0.0
 
@@ -59,7 +83,6 @@ class VirusPredictor
     puts " and will spread across the state in #{speed} months.\n\n"
 
   end
-
 end
 
 #=======================================================================
@@ -67,15 +90,7 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
-
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population], STATE_DATA["Alabama"][:region], STATE_DATA["Alabama"][:regional_spread]) 
-alabama.virus_effects
-
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population], STATE_DATA["New Jersey"][:region], STATE_DATA["New Jersey"][:regional_spread]) 
-jersey.virus_effects
-
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population], STATE_DATA["California"][:region], STATE_DATA["California"][:regional_spread]) 
-california.virus_effects
-
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population], STATE_DATA["Alaska"][:region], STATE_DATA["Alaska"][:regional_spread]) 
-alaska.virus_effects
+STATE_DATA.each_key do |state|
+  state = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population], STATE_DATA[state][:region], STATE_DATA[state][:regional_spread]) 
+  state.virus_effects
+end
