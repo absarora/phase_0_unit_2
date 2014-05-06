@@ -44,7 +44,8 @@ end
 
 
 die = Die.new(6)
-
+die.sides
+die.roll
 
 
 # 5. Reflection
