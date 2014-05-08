@@ -46,12 +46,14 @@ end
 # 1. DRIVER TESTS GO BELOW THIS LINE
 
 
-p CreditCard.new(11111111111111112) #Invalid Card (more than 16 characters)
-p CreditCard.new(1) #Invalid Card (less than 16 characters)
+#p CreditCard.new(11111111111111112) #Invalid Card (more than 16 characters)
+#p CreditCard.new(1) #Invalid Card (less than 16 characters)
 
-p CreditCard.new(4563960122001999) == true
-p CreditCard.new(4408041234567892) == false
+isValid = CreditCard.new(4563960122001999)
+p isValid.check_card
 
+isInvalid = CreditCard.new(4408041234567892)
+p isInvalid.check_card
 
 
 
