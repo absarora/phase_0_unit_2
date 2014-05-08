@@ -1,7 +1,7 @@
 # U2.W6: PezDispenser Class from User Stories
 
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself].
 
 # 1. Review the following user stories:
 # - As a pez user, I'd like to be able to "create" a new pez dispenser with a group of flavors that 
@@ -13,24 +13,37 @@
 # - As a pez user, I'd like to be able to see all the flavors inside the dispenser so I know the order 
 #      of the flavors coming up.
 
-
 # 2. Pseudocode
 
-
+# create a class named "PezDispenser"
+# create a constructor
+# create a method named "pez_count" that returns the length of an array
+# create a method named "add_pez" that takes one argument
+# => adds a flavor to an array of flavors
+# create a method named "see_all_pez" that returns all the elements of an array
+# create a method named "get_paz" that pops an element from an array
 
 # 3. Initial Solution
 
 class PezDispenser
- 
-# your code here!
- 
+  def initialize(pez)
+    @pez = pez
+  end
+  def pez_count
+    @pez.count
+  end
+  def add_pez(flavor)
+    @pez.push(flavor)
+  end
+  def see_all_pez
+    @pez.sort
+  end
+  def get_pez
+    @pez.shift
+  end
 end
- 
-
 
 # 4. Refactored Solution
-
-
 
 
 
@@ -49,7 +62,7 @@ puts "Oh, you want one do you?"
 puts "The pez flavor you got is: #{super_mario.get_pez}"
 puts "Now you have #{super_mario.pez_count} pez!"
 
-
-
-
 # 5. Reflection 
+
+# This was a good practice exercise to work on based on the user stories and
+# driver test code been provided. 
