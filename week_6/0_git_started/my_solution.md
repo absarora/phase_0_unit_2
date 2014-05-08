@@ -14,7 +14,8 @@ check to see the current branch you are working on; it will also list all the br
 
 #### checkout
 ```
-By default, Git repositories are set to the master branch. Git checkout used with the -b option creates a new branch, and switch to it at the same time.
+By default, Git repositories are set to the master branch. Git checkout used with the -b option creates
+a new branch, and switch to it at the same time.
 ```
 
 #### clone
