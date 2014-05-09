@@ -58,7 +58,44 @@ end
 
 # Refactored Solution
 
+class Song
+  def initialize(track, artist)
+    @track = track
+    @artist = artist
+  end
+  def play
+    puts "#{@track} by #{@artist}"
+  end
+  def track
+    puts "#{@track} by #{@artist}"
+  end
+end
 
+class Playlist
+  def initialize(*playlist)
+    @playlist = playlist
+  end
+  def add(*tracks)
+    tracks.each{|track| @playlist << track}
+  end
+  def num_of_tracks
+    @playlist.count
+  end
+  def play_all
+    puts "\nPlaying all the current tracks:"
+    @playlist.each(&:play)
+  end
+  def remove(track)
+    @playlist.delete(track)
+  end
+  def display
+    puts "\nCurrent Playlist:"
+    @playlist.each(&:track)
+  end
+  def includes?(track)
+    @playlist.include?(track)
+  end
+end
 
 
 
@@ -84,5 +121,4 @@ my_playlist.display
 
 # Reflection
 
-# Everything seems to work but I doubt I have the "display" method setup correctly
-# to display the tracks and artists.
+# The program doesn't have a lot of user messages but it does work as I anticipated.
